@@ -8,6 +8,8 @@ function love.load()
     --Configuración sprites
     muro_indestructible = love.graphics.newImage('archivos/muro_indestructible.png')
     muro_destructible = love.graphics.newImage('archivos/muro_destructible.png')
+    bombaImagen = love.graphics.newImage('archivos/bomba.png')
+    explosionImagen = love.graphics.newImage('archivos/explosion.png')
 
     --Configuración efectos 
     sonidobomba = love.audio.newSource("archivos/explotar.ogg", "static")
@@ -565,9 +567,8 @@ function love.draw()
     end
 
     -- Dibuja las bombas
-    love.graphics.setColor(0, 0, 0)  -- Negro
     for _, bomba in ipairs(bombas) do
-        love.graphics.rectangle('fill', bomba.x, bomba.y, 40, 40)
+        love.graphics.draw(bombaImagen, bomba.x, bomba.y)
     end
     
     -- Dibuja las explosiones
